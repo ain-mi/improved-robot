@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的部落格</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <div class="nav-brand">Tech Blog_</div>
+        <ul class="nav-links">
+            <li><a href="#home">首頁</a></li>
+            <li><a href="#articles">文章</a></li>
+            <li><a href="#about">關於</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要內容 -->
+    <main class="container">
+        <!-- 作者資訊 -->
+        <aside class="author-info">
+            <img src="https://via.placeholder.com/150" alt="作者頭像" class="author-avatar">
+            <h2>< Developer /></h2>
+            <p>全端工程師 | AI 研究者<br>探索科技的無限可能</p>
+        </aside>
+
+        <!-- 文章部分 -->
+        <article class="blog-post">
+            <h1>// 最新科技趨勢分析</h1>
+            <div class="post-meta">
+                <span class="post-date">$ 發布時間：2024年5月12日</span>
+                <span class="post-author">> 作者：Tech Explorer</span>
+            </div>
+            <div class="post-content">
+                <p>探索前沿科技的最新發展...</p>
+            </div>
+
+            <!-- 投票區域 -->
+            <div class="voting-section">
+                <button class="vote-btn" onclick="vote('up')">⬆ 讚同</button>
+                <span id="vote-count">0</span>
+                <button class="vote-btn" onclick="vote('down')">⬇ 反對</button>
+            </div>
+
+            <!-- 留言區 -->
+            <div class="comments-section">
+                <h3>/* 留言區 */</h3>
+                <form id="comment-form">
+                    <textarea placeholder="// 寫下你的想法..." required></textarea>
+                    <button type="submit">發送留言 ></button>
+                </form>
+                <div id="comments-list">
+                    <!-- 留言將透過JavaScript動態新增 -->
+                </div>
+            </div>
+        </article>
+
+        <!-- 訂閱區域 -->
+        <div class="subscription-box">
+            <h3>訂閱更新 <span class="blink">_</span></h3>
+            <form id="subscribe-form">
+                <input type="email" placeholder="your.email@domain.com" required>
+                <button type="submit">訂閱 ></button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
