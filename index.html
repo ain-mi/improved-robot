@@ -8,11 +8,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+          position: relative;
+          max-width: 800px;  /* 最大寬度 */
+          margin: 0 auto;
+        }
+        canvas {
+          width: 100% !important;
+          height: auto !important;
+        }
+          h1{
+              color: gainsboro
+          }
+        </style>
 </head>
 <body>
     <!-- 導覽列 -->
     <nav class="navbar">
-        <div class="nav-brand">Tech Blog_</div>
+        <div class="nav-brand">Information is Delicious_</div>
         <ul class="nav-links">
             <li><a href="#home">首頁</a></li>
             <li><a href="#articles">文章</a></li>
@@ -24,49 +39,146 @@
     <main class="container">
         <!-- 作者資訊 -->
         <aside class="author-info">
-            <img src="https://via.placeholder.com/150" alt="作者頭像" class="author-avatar">
-            <h2>< Developer /></h2>
-            <p>全端工程師 | AI 研究者<br>探索科技的無限可能</p>
+            <img src="author-avata-1.png" alt="作者頭像" class="author-avatar">
+            <h2>wilson</h2>
+            <p>資料觀察豬 | AI 研究者<br>探索資料的無限可能</p>
         </aside>
 
         <!-- 文章部分 -->
-        <article class="blog-post">
-            <h1>// 最新科技趨勢分析</h1>
-            <div class="post-meta">
-                <span class="post-date">$ 發布時間：2024年5月12日</span>
-                <span class="post-author">> 作者：Tech Explorer</span>
-            </div>
-            <div class="post-content">
-                <p>探索前沿科技的最新發展...</p>
-            </div>
+           <article class="blog-post">
+      <h1>// 臺灣103年至113年人口結構與城鄉分布分析</h1>
+      <div class="post-meta">
+        <span class="post-date">$ 發布時間：2024年5月26日</span>
+        <span class="post-author">> 作者：wilson</span>
+      </div>
+      <div class="post-content">
+        <br><h3>1.總人口數轉為負成長</h3> 
+        <p>
+          <strong>103年總人口：</strong>23,433,753人（國家發展委員會推計）<br>
+          <strong>113年總人口：</strong>23,404,138人（內政部戶政司113年9月統計）<br>
+          <strong>人口年增率：</strong>從103年的+0.258%轉為113年的-0.93‰，顯示臺灣自109年後進入人口自然減少階段。
+        </p>
+        <br><h3>2.人口零成長時間點</h3>
+        <p>
+          <strong>中推計：</strong>110年達23.6百萬人高峰後轉為負成長<br>
+          <strong>低推計：</strong>108年即達23.5百萬人高峰<br>
+          <strong>實際數據：</strong>113年人口數已低於103年水準，驗證推計趨勢。
+        </p>
 
-            <!-- 投票區域 -->
-            <div class="voting-section">
-                <button class="vote-btn" onclick="vote('up')">⬆ 讚同</button>
-                <span id="vote-count">0</span>
-                <button class="vote-btn" onclick="vote('down')">⬇ 反對</button>
-            </div>
+        <br><hr><br>
+        <h2 style="text-align:center">103年與113年性別人口與性比例比較</h2>
+        <div id="chartWrapper">
+          <canvas id="genderChart"></canvas>
+        </div>
 
-            <!-- 留言區 -->
-            <div class="comments-section">
-                <h3>/* 留言區 */</h3>
-                <form id="comment-form">
-                    <textarea placeholder="// 寫下你的想法..." required></textarea>
-                    <button type="submit">發送留言 ></button>
-                </form>
-                <div id="comments-list">
-                    <!-- 留言將透過JavaScript動態新增 -->
-                </div>
-            </div>
-        </article>
+        <script>
+          const ctx = document.getElementById('genderChart').getContext('2d');
+
+          const data = {
+            labels: ['103年', '113年'],
+            datasets: [
+              {
+                label: '男性人口（萬）',
+                data: [1168.0, 1153.2],
+                backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                yAxisID: 'y',
+              },
+              {
+                label: '女性人口（萬）',
+                data: [1172.0, 1187.2],
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                yAxisID: 'y',
+              },
+              {
+                label: '性比例（女=100）',
+                data: [99.66, 97.13],
+                type: 'line',
+                borderColor: 'orange',
+                borderWidth: 2,
+                fill: false,
+                yAxisID: 'y1',
+                tension: 0.3,
+              }
+            ]
+          };
+
+          const config = {
+            type: 'bar',
+            data: data,
+            options: {
+              responsive: true,
+              maintainAspectRatio: true,
+              aspectRatio: 1.5,
+              interaction: {
+                mode: 'index',
+                intersect: false,
+              },
+              scales: {
+                y: {
+                  beginAtZero: false,
+                  title: {
+                    display: true,
+                    text: '人口（萬）'
+                  }
+                },
+                y1: {
+                  position: 'right',
+                  beginAtZero: false,
+                  grid: {
+                    drawOnChartArea: false
+                  },
+                  title: {
+                    display: true,
+                    text: '性比例（女=100）'
+                  }
+                }
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: '103年與113年 性別人口與性比例比較'
+                }
+              }
+            }
+          };
+
+          new Chart(ctx, config);
+        </script>
+      </div>
+    </article>
+
+
+
+
+
+
 
         <!-- 訂閱區域 -->
         <div class="subscription-box">
-            <h3>訂閱更新 <span class="blink">_</span></h3>
+            <h3>訂閱躺平報 <span class="blink">_</span></h3>
             <form id="subscribe-form">
                 <input type="email" placeholder="your.email@domain.com" required>
                 <button type="submit">訂閱 ></button>
             </form>
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwUXQjHNI34kuzpv-b_SmtC0r5lzISeC4csTu928T40N5UUobkhPlhAYlrsMDGkJBRU/exec';
+              
+                document.getElementById('emailForm').addEventListener('submit', async (e) => {
+                  e.preventDefault();
+                  const email = document.getElementById('emailInput').value;
+              
+                  const formData = new URLSearchParams();
+                  formData.append('email', email);
+              
+                  const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData,
+                  });
+              
+                  const result = await response.json();
+                  alert(result.result);
+                });
+              </script>
         </div>
     </main>
 

@@ -133,64 +133,6 @@ body {
     gap: 1rem;
 }
 
-.post-meta span {
-    margin-right: 1rem;
-}
-
-/* 投票區域樣式 */
-.voting-section {
-    margin: 2rem 0;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.vote-btn {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    background-color: transparent;
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.vote-btn:hover {
-    background-color: var(--primary-color);
-    color: var(--bg-color);
-    box-shadow: var(--neon-shadow);
-}
-
-/* 留言區樣式 */
-.comments-section {
-    margin-top: 2rem;
-}
-
-#comment-form textarea {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(2, 12, 27, 0.5);
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    color: var(--text-color);
-    margin: 1rem 0;
-    min-height: 100px;
-    resize: vertical;
-}
-
-#comment-form textarea:focus {
-    outline: none;
-    box-shadow: var(--neon-shadow);
-}
-
-.comment {
-    background: rgba(2, 12, 27, 0.5);
-    border: 1px solid var(--primary-color);
-    border-radius: 4px;
-    padding: 1rem;
-    margin: 1rem 0;
-}
-
 /* 訂閱區域樣式 */
 .subscription-box {
     grid-column: 1 / -1;
@@ -251,4 +193,8 @@ button[type="submit"]:hover {
     #subscribe-form {
         flex-direction: column;
     }
+
+    .iframe-wrapper {
+        padding-bottom: 100%; /* 1:1 */
+      }
 } 
