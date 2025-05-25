@@ -153,33 +153,53 @@
 
 
 
-        <!-- 訂閱區域 -->
+ <!-- 訂閱區域 -->
         <div class="subscription-box">
             <h3>訂閱躺平報 <span class="blink">_</span></h3>
             <form id="subscribe-form">
-                <input type="email" placeholder="your.email@domain.com" required>
-                <button type="submit">訂閱 ></button>
+                <input type="email" id="emailInput" placeholder="your.email@domain.com" required>
+                <button type="submit" id="submitBtn">訂閱 ></button>
             </form>
+
             <script>
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbzhiPEMvBLs3Rz-58p2r2l_aok9AcC6tPR243hqllueNsNkbIqmm-X_LBUb_kO9lR1X/exec';
-              
-                document.getElementById('emailForm').addEventListener('submit', async (e) => {
-                  e.preventDefault();
-                  const email = document.getElementById('emailInput').value;
-              
-                  const formData = new URLSearchParams();
-                  formData.append('email', email);
-              
-                  const response = await fetch(scriptURL, {
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwUXQjHNI34kuzpv-b_SmtC0r5lzISeC4csTu928T40N5UUobkhPlhAYlrsMDGkJBRU/exec';
+
+                const form = document.getElementById('subscribe-form');
+                const emailInput = document.getElementById('emailInput');
+                const button = document.getElementById('submitBtn');
+
+                form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = emailInput.value;
+
+                // 鎖定按鈕
+                button.innerHTML = '訂閱中...';
+                button.disabled = true;
+
+                const formData = new URLSearchParams();
+                formData.append('email', email);
+
+                try {
+                    const response = await fetch(scriptURL, {
                     method: 'POST',
                     body: formData,
-                  });
-              
-                  const result = await response.json();
-                  alert(result.result);
+                    });
+
+                    const result = await response.json();
+
+                    // 顯示成功訊息
+                    alert('感謝訂閱躺平報！我們會將最新文章發送到：' + email);
+                    emailInput.value = '';
+                } catch (err) {
+                    alert('訂閱失敗，請再試一次😥');
+                } finally {
+                    button.innerHTML = '訂閱 >';
+                    button.disabled = false;
+                }
                 });
-              </script>
-        </div>
+            </script>
+            </div>
+
     </main>
 
     <script src="script.js"></script>
