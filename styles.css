@@ -381,7 +381,7 @@ body {
 
 #chartWrapper {
     background: var(--card-bg);
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 12px;
     border: 1px solid rgba(0, 255, 157, 0.2);
     margin: 2rem 0;
