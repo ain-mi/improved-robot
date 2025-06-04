@@ -591,9 +591,8 @@ button[type="submit"]:hover {
 
 .impact-card {
     background: var(--card-bg);
-    padding: 2rem;
+    padding: 2rem 0;
     border-radius: 8px;
-    border: 1px solid rgba(0, 255, 157, 0.15);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -623,7 +622,7 @@ button[type="submit"]:hover {
 .impact-title {
     color: var(--accent-color);
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin: 0 1rem 1.5rem 1rem;
     line-height: 1.4;
     font-weight: 600;
 }
@@ -809,5 +808,11 @@ button[type="submit"]:hover {
     
     .status-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* 手機版圖表高度調整 */
+
+    #chartWrapper  {
+       height: 400px; /* 手機版增高 */
     }
 }
