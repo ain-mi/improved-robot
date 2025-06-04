@@ -68,7 +68,7 @@ function initChart() {
         data: data,
         options: {
             responsive: true,
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             aspectRatio: 1.5,
             interaction: {
                 mode: 'index',
