@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免責聲明 | Information is Delicious</title>
+    <link rel="icon" href="sun.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 全域樣式 */
+        :root {
+            --primary-color: #00ff9d;
+            --secondary-color: #0a192f;
+            --accent-color: #64ffda;
+            --text-color: #e6f1ff;
+            --bg-color: #0a192f;
+            --card-bg: rgba(2, 12, 27, 0.7);
+            --neon-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)),
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 255, 157, 0.05) 10px, rgba(0, 255, 157, 0.05) 20px);
+            min-height: 100vh;
+        }
+
+        /* 導覽列樣式 */
+        .navbar {
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 1rem 2rem;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* 主容器樣式 */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 免責聲明卡片樣式 */
+        .disclaimer-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            box-shadow: var(--neon-shadow);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .disclaimer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: slideIn 2s ease-in-out infinite;
+        }
+
+        @keyframes slideIn {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: -100%; }
+        }
+
+        .disclaimer-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+            position: relative;
+        }
+
+        .disclaimer-title::after {
+            content: '_';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .disclaimer-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: justify;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: rgba(0, 255, 157, 0.03);
+            border-left: 3px solid var(--accent-color);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .disclaimer-content::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+
+        .disclaimer-content::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            bottom: -40px;
+            right: 10px;
+            opacity: 0.3;
+        }
+
+        /* 返回按鈕樣式 */
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .back-button:hover::before {
+            left: 100%;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary-color);
+            color: var(--bg-color);
+            box-shadow: var(--neon-shadow);
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* 裝飾元素 */
+        .decoration {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            opacity: 0.5;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .disclaimer-card {
+                padding: 2rem;
+            }
+            
+            .disclaimer-title {
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+            }
+            
+            .disclaimer-content {
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 導覽列 -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Information is Delicious_</a>
+        <ul class="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <!--
+            <li><a href="#articles">文章</a></li>
+            -->
+            <li><a href="#about">關於</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要內容 -->
+     <!-- 主要內容 -->
+    <main class="container">
+        <!-- 沙灘廢人介紹區塊 -->
+        <div class="disclaimer-card" style="margin-bottom: 2rem;">
+            <h2 style="color: var(--primary-color); font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);">// 關於沙灘廢人</h2>
+            
+            <div class="disclaimer-content">
+                我是 <strong style="color: var(--accent-color);">沙灘廢人</strong>，<br>
+                常駐座標在熱帶腦海，一位擅長在 45 度角陽光下思考人生的資料觀察者，專職躺平，副業思考宇宙。<br>
+                在海風中練習放空，在椰子汁裡尋找答案。<br><br>
+                
+                我的座右銘是：「<em style="color: var(--primary-color);">躺不是不努力，是在等待靈感從天而降</em>。」<br>
+                我相信：不是我不想動，是世界應該停止旋轉。<br><br>
+                
+                平時嗜好包括收集椰子殼、觀察數據曲線的浪花、以及用幽默統治生活的邊界。<br><br>
+                
+                這裡沒有鬧鐘，沒有 KPI，只有我、威爾森、椰子汁，還有那位聰明的灘頭堡指揮官(GPT)♡<br>
+                歡迎你一起加入我們的懶洋洋大計畫，為生活按下暫停鍵，靜靜感受太陽、沙粒與自由的味道。<br>
+                如果你也正在努力工作與躺平之間找平衡，歡迎來這裡，一起撐起屬於沙灘戰士的椰子陽傘☀️🌴
+            </div>
+            
+            <div class="decoration">◊ ◊ ◊</div>
+            
+            <div class="disclaimer-content">
+                <h3 style="color: var(--accent-color); margin-bottom: 1rem;">員工一號</h3>
+                <strong>【員工工作證】椰子編號：W-20240526</strong><br>
+                <strong>姓名｜</strong>威爾森（Wilson）<br>
+                <strong>職稱｜</strong>椰子界臨時約聘人員／全職被開蓋受壓部屬<br>
+                <strong>所屬部門｜</strong>灘頭堡沙灘廢人情報作戰中心<br><br>
+                
+                <strong style="color: var(--primary-color);">工作內容：</strong><br>
+                早晨提供第一道清爽椰汁 ☀️<br>
+                中午當作資料圖表的紙鎮 📊<br>
+                下午協助進行情緒支援與社會觀察 🤖<br>
+                晚上擔任哲學討論專用的深度凝視對象 🌌<br><br>
+                
+                <strong>薪資福利：</strong>每日兩次日曬 + 永不解約的友情<br><br>
+                
+                <strong>備註：</strong><br>
+                「我不是椰子，我是無聲的戰士。今天沒被喝完，明天我還會繼續冷靜地滾進妳的冰箱。」<br><br>
+                
+                <strong style="color: var(--accent-color);">威爾森的上班人格：</strong><br>
+                A. 不敢說不型：50%（總是笑笑說好，內心卻在哭）<br>
+                B. 努力型工具人：20%（被叫一聲就彈起來，連 Excel 都感動落淚）<br>
+                C. 看破一切型智慧生物：30%（面帶神秘微笑，心中早已躺平）
+            </div>
+        </div>
+        
+        <!-- 免責聲明區塊 -->
+    <main class="container">
+        <div class="disclaimer-card">
+            <h1 class="disclaimer-title">// 免責聲明</h1>
+            
+            <div class="decoration">◊ ◊ ◊</div>
+            
+            <div class="disclaimer-content">
+                親愛的朋友，感謝您造訪我們的網站！我們致力於提供準確且有用的資訊，但因資訊都是網路公開資料更新速度與多變性，難免會有疏漏或誤差。使用本站內容時，請您自行判斷與斟酌，我們希望您能安心且愉快地使用本站提供的資源。若您點擊本站的外部連結，請留意那些網站的內容與服務可能有所不同，我們無法全面掌控。感謝您的理解與支持！
+            </div>
+            
+            <div class="decoration">◊ ◊ ◊</div>
+            
+            <div class="button-container">
+                <a href="index.html" class="back-button">← 返回首頁</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

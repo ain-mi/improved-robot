@@ -3,205 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ＩＩＯＯ資料視覺分析</title>
+    <title>Information is Delicious | 美味資料</title>
+    <link rel="icon" href="sun.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        .chart-container {
-          position: relative;
-          max-width: 800px;  /* 最大寬度 */
-          margin: 0 auto;
-        }
-        canvas {
-          width: 100% !important;
-          height: auto !important;
-        }
-          h1{
-              color: gainsboro
-          }
-        </style>
 </head>
 <body>
+    <!-- 動態背景 -->
+    <div class="wave-bg">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
     <!-- 導覽列 -->
     <nav class="navbar">
-        <div class="nav-brand">Information is Delicious_</div>
+        <a href="#" class="nav-brand">Information is Delicious_</a>
         <ul class="nav-links">
             <li><a href="#home">首頁</a></li>
             <li><a href="#articles">文章</a></li>
-            <li><a href="#about">關於</a></li>
+            <li><a href="about.html">關於</a></li>
         </ul>
     </nav>
 
+    <!-- 英雄區塊 -->
+    <section class="hero" id="home">
+        <div class="floating-coconut coconut-1">🥥</div>
+        <div class="floating-coconut coconut-2">🌴</div>
+        <div class="floating-coconut coconut-3">☀️</div>
+        
+        <h1 class="hero-title">Information is Delicious</h1>
+        <h2 class="hero-subtitle">資料很美味 • 探索資料的無限可能</h2>
+        <p>在躺平和起立間猶豫，我是灘頭堡的椰子工具人1號 wilson，讓我們一起享受完美的資料沙灘</p>
+    </section>
+
     <!-- 主要內容 -->
-    <main class="container">
-        <!-- 作者資訊 -->
-        <aside class="author-info">
-            <img src="author-avata-1.png" alt="作者頭像" class="author-avatar">
-            <h2>wilson</h2>
-            <p>資料觀察豬 | AI 研究者<br>探索資料的無限可能</p>
-        </aside>
-
-        <!-- 文章部分 -->
-           <article class="blog-post">
-      <h1>// 臺灣103年至113年人口分析及性別比</h1>
-      <div class="post-meta">
-        <span class="post-date">$ 發布時間：2024年5月26日</span>
-        <span class="post-author">> 作者：wilson</span>
-      </div>
-      <div class="post-content">
-        <br><h3>1.總人口數轉為負成長</h3> 
-        <p>
-          <strong>103年總人口：</strong>23,433,753人（國家發展委員會推計）<br>
-          <strong>113年總人口：</strong>23,404,138人（內政部戶政司113年9月統計）<br>
-          <strong>人口年增率：</strong>從103年的+0.258%轉為113年的-0.93‰，顯示臺灣自109年後進入人口自然減少階段。
-        </p>
-        <br><h3>2.人口零成長時間點</h3>
-        <p>
-          <strong>中推計：</strong>110年達23.6百萬人高峰後轉為負成長<br>
-          <strong>低推計：</strong>108年即達23.5百萬人高峰<br>
-          <strong>實際數據：</strong>113年人口數已低於103年水準，驗證推計趨勢。
-        </p>
-
-        <br><hr><br>
-        <h2 style="text-align:center">103年與113年性別人口與性比例比較</h2>
-        <div id="chartWrapper">
-          <canvas id="genderChart"></canvas>
+    <main class="content-section">
+        <!-- 沙灘廢人狀態面板 -->
+        <div class="status-panel">
+            <h3 style="color: var(--accent-color); margin-bottom: 1.5rem; font-size: 1.5rem;">🏖️ 沙灘廢人即時狀態</h3>
+            <div class="status-grid">
+                <div class="status-item">
+                    <span class="status-value" id="coconut-count">42</span>
+                    <span class="status-label">椰子存量</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-value" id="sun-angle">45°</span>
+                    <span class="status-label">完美躺平角度</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-value" id="inspiration-level">∞</span>
+                    <span class="status-label">靈感等級</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-value" id="wilson-mood">😎</span>
+                    <span class="status-label">威爾森心情</span>
+                </div>
+            </div>
         </div>
 
-        <script>
-          const ctx = document.getElementById('genderChart').getContext('2d');
+        <!-- 文章列表 -->
+        <section id="articles">
+            <h2 class="section-title">// 資料探索日誌</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <h3 class="article-title">資料視覺化的魔法世界</h3>
+                    <p class="article-desc">在45度角陽光下思考如何讓枯燥的數據跳舞，讓圖表說出動人的故事。從散點圖的星空到長條圖的椰子林...</p>
+                <div class="article-meta">
+                    <span>📊 臺灣103年至113年人口分析：機會與挑戰</span>
+                    <a href="taiwan population analysis.html" class="read-more">閱讀更多 →</a>
+                </div>
+                    <!-- 這段不會執行 
+                    <div class="article-meta">
+                        <span>📊 資料科學</span>
+                        <a href="#" class="read-more">閱讀更多 →</a>
+                    </div>
+                     -->
+                </article>
+                <article class="article-card" onclick="openArticle('beach-analytics')">
+                    <h3 class="article-title">沙灘分析學：躺平也是一門科學</h3>
+                    <p class="article-desc">運用大數據分析最佳躺平時機，結合氣象數據、潮汐預測和椰子成熟度指標，打造完美的廢人生活...</p>
+                    <div class="article-meta">
+                        <span>🏖️ 生活科學</span>
+                        <a href="#" class="read-more">閱讀更多 →</a>
+                    </div>
+                </article>
 
-          const data = {
-            labels: ['103年', '113年'],
-            datasets: [
-              {
-                label: '男性人口（萬）',
-                data: [1168.0, 1153.2],
-                backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                yAxisID: 'y',
-              },
-              {
-                label: '女性人口（萬）',
-                data: [1172.0, 1187.2],
-                backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                yAxisID: 'y',
-              },
-              {
-                label: '性比例（女=100）',
-                data: [99.66, 97.13],
-                type: 'line',
-                borderColor: 'orange',
-                borderWidth: 2,
-                fill: false,
-                yAxisID: 'y1',
-                tension: 0.3,
-              }
-            ]
-          };
+                <article class="article-card" onclick="openArticle('wilson-memoirs')">
+                    <h3 class="article-title">威爾森回憶錄：一個椰子的職場生涯</h3>
+                    <p class="article-desc">從被採摘的那天開始，記錄一顆椰子在現代職場的生存法則。50%不敢說不，20%努力工具人，30%看破紅塵...</p>
+                    <div class="article-meta">
+                        <span>🥥 職場心理</span>
+                        <a href="#" class="read-more">閱讀更多 →</a>
+                    </div>
+                </article>
 
-          const config = {
-            type: 'bar',
-            data: data,
-            options: {
-              responsive: true,
-              maintainAspectRatio: true,
-              aspectRatio: 1.5,
-              interaction: {
-                mode: 'index',
-                intersect: false,
-              },
-              scales: {
-                y: {
-                  beginAtZero: false,
-                  title: {
-                    display: true,
-                    text: '人口（萬）'
-                  }
-                },
-                y1: {
-                  position: 'right',
-                  beginAtZero: false,
-                  grid: {
-                    drawOnChartArea: false
-                  },
-                  title: {
-                    display: true,
-                    text: '性比例（女=100）'
-                  }
-                }
-              },
-              plugins: {
-                title: {
-                  display: true,
-                  text: '103年與113年 性別人口與性比例比較'
-                }
-              }
-            }
-          };
+                <article class="article-card" onclick="openArticle('data-cooking')">
+                    <h3 class="article-title">數據料理：如何烹飪美味的洞察</h3>
+                    <p class="article-desc">就像調製完美的椰子汁一樣，資料分析也需要精準的配方。清洗、調味、裝盤，每個步驟都是藝術...</p>
+                    <div class="article-meta">
+                        <span>🍳 資料工程</span>
+                        <a href="#" class="read-more">閱讀更多 →</a>
+                    </div>
+                </article>
 
-          new Chart(ctx, config);
-        </script>
-      </div>
-    </article>
+                <article class="article-card" onclick="openArticle('ai-philosophy')">
+                    <h3 class="article-title">人工智慧與椰子哲學</h3>
+                    <p class="article-desc">當AI遇上沙灘廢人的生活智慧，探討機器學習與人類直覺的完美平衡，以及為什麼有時候躺平比演算法更有效...</p>
+                    <div class="article-meta">
+                        <span>🤖 AI哲學</span>
+                        <a href="#" class="read-more">閱讀更多 →</a>
+                    </div>
+                </article>
 
-
-
-
-
-
-
- <!-- 訂閱區域 -->
-        <div class="subscription-box">
-            <h3>訂閱躺平報 <span class="blink">_</span></h3>
-            <form id="subscribe-form">
-                <input type="email" id="emailInput" placeholder="your.email@domain.com" required>
-                <button type="submit" id="submitBtn">訂閱 ></button>
-            </form>
-
-            <script>
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbwUXQjHNI34kuzpv-b_SmtC0r5lzISeC4csTu928T40N5UUobkhPlhAYlrsMDGkJBRU/exec';
-
-                const form = document.getElementById('subscribe-form');
-                const emailInput = document.getElementById('emailInput');
-                const button = document.getElementById('submitBtn');
-
-                form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const email = emailInput.value;
-
-                // 鎖定按鈕
-                button.innerHTML = '訂閱中...';
-                button.disabled = true;
-
-                const formData = new URLSearchParams();
-                formData.append('email', email);
-
-                try {
-                    const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    body: formData,
-                    });
-
-                    const result = await response.json();
-
-                    // 顯示成功訊息
-                    alert('感謝訂閱躺平報！我們會將最新文章發送到：' + email);
-                    emailInput.value = '';
-                } catch (err) {
-                    alert('訂閱失敗，請再試一次😥');
-                } finally {
-                    button.innerHTML = '訂閱 >';
-                    button.disabled = false;
-                }
-                });
-            </script>
+                <article class="article-card" onclick="openArticle('future-beach')">
+                    <h3 class="article-title">未來沙灘：2030年的資料世界</h3>
+                    <p class="article-desc">預測未來十年資料科學的發展趨勢，以及沙灘廢人如何在量子計算時代繼續保持躺平的藝術...</p>
+                    <div class="article-meta">
+                        <span>🔮 未來科技</span>
+                        <a href="#" class="read-more">閱讀更多 →</a>
+                    </div>
+                </article>
             </div>
-
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <!-- 威爾森角落 -->
+    <div class="wilson-corner" onclick="wilsonSays()" title="點擊聽威爾森說話">
+        🥥
+    </div>
+
+    <script>
+        // 動態更新狀態面板
+        function updateStatus() {
+            const coconutCount = document.getElementById('coconut-count');
+            const sunAngle = document.getElementById('sun-angle');
+            const inspirationLevel = document.getElementById('inspiration-level');
+            const wilsonMood = document.getElementById('wilson-mood');
+            
+            // 椰子數量隨機變化
+            setInterval(() => {
+                const count = Math.floor(Math.random() * 20) + 35;
+                coconutCount.textContent = count;
+            }, 5000);
+            
+            // 威爾森心情變化
+            const moods = ['😎', '🤔', '😴', '😊', '🙃', '😇'];
+            setInterval(() => {
+                const mood = moods[Math.floor(Math.random() * moods.length)];
+                wilsonMood.textContent = mood;
+            }, 8000);
+            
+            // 太陽角度微調
+            setInterval(() => {
+                const angle = 45 + Math.floor(Math.random() * 10) - 5;
+                sunAngle.textContent = angle + '°';
+            }, 3000);
+        }
+
+        // 威爾森說話功能
+        function wilsonSays() {
+            const quotes = [
+                "今天又是被開蓋的一天... 😅",
+                "我不是椰子，我是無聲的戰士！",
+                "老闆，我內心其實很複雜...",
+                "Excel都被我感動落淚了 📊",
+                "面帶神秘微笑，心中早已躺平 😌",
+                "滾進冰箱是我的日常通勤 🧊",
+                "50%的我在說好，內心卻在哭 😭"
+            ];
+            
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            // 創建彈出式對話框
+            const dialog = document.createElement('div');
+            dialog.style.cssText = `
+                position: fixed;
+                bottom: 110px;
+                right: 20px;
+                background: var(--card-bg);
+                border: 1px solid var(--primary-color);
+                border-radius: 12px;
+                padding: 1rem;
+                max-width: 250px;
+                color: var(--text-color);
+                font-size: 0.9rem;
+                z-index: 1000;
+                animation: fadeIn 0.3s ease;
+                box-shadow: var(--neon-shadow);
+            `;
+            
+            dialog.innerHTML = `
+                <div style="color: var(--accent-color); font-weight: bold; margin-bottom: 0.5rem;">威爾森說：</div>
+                <div>${quote}</div>
+            `;
+            
+            document.body.appendChild(dialog);
+            
+            // 3秒後自動消失
+            setTimeout(() => {
+                dialog.style.animation = 'fadeOut 0.3s ease';
+                setTimeout(() => document.body.removeChild(dialog), 300);
+            }, 3000);
+        }
+
+        // 文章點擊功能
+        function openArticle(articleId) {
+            const messages = {
+                'data-viz-magic': '🌟 這篇文章正在沙灘上曬太陽，即將完成！',
+                'beach-analytics': '📊 沙灘分析報告生成中... 請稍候！',
+                'wilson-memoirs': '🥥 威爾森正在整理回憶，請給他一點時間...',
+                'data-cooking': '🍳 資料大廚正在準備食譜，敬請期待！',
+                'ai-philosophy': '🤖 AI與椰子的對話即將開始...',
+                'future-beach': '🔮 時光機正在校準中，請稍後再來！'
+            };
+            
+            alert(messages[articleId] || '文章正在準備中，感謝您的耐心！');
+        }
+
+        // CSS動畫
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 初始化
+        updateStatus();
+        
+        // 頁面載入動畫
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.article-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>

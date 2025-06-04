@@ -139,7 +139,11 @@ body {
     color: var(--primary-color);
     text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
     margin-bottom: 1rem;
-    animation: glow 2s ease-in-out infinite alternate;
+    /* 修正後的穩定動畫 */
+    animation: stable-hero-glow 2s ease-in-out infinite alternate;
+    /* 防止佈局偏移 */
+    will-change: text-shadow;
+    transform: translateZ(0);
 }
 
 .hero-subtitle {
@@ -149,9 +153,15 @@ body {
     opacity: 0.9;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 20px rgba(0, 255, 157, 0.5); }
-    to { text-shadow: 0 0 30px rgba(0, 255, 157, 0.8), 0 0 40px rgba(0, 255, 157, 0.6); }
+@keyframes stable-hero-glow {
+    0% { 
+        text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+    }
+    100% { 
+        text-shadow: 
+            0 0 30px rgba(0, 255, 157, 0.8), 
+            0 0 40px rgba(0, 255, 157, 0.6);
+    }
 }
 
 @keyframes blink {
@@ -201,6 +211,11 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
+    /* 確保容器穩定 */
+    min-height: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-title::before,
@@ -211,6 +226,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
 }
 
 .section-title::before { left: -50px; }
@@ -396,7 +412,7 @@ h1 {
     color: gainsboro;
 }
 
-/* 統計摘要樣式 */
+/* 統計摘要樣式 - 修正後版本 */
 .stats-summary {
     margin: 3rem 0;
     padding: 2rem;
@@ -408,11 +424,59 @@ h1 {
 
 .stats-title {
     color: var(--primary-color);
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
     text-align: center;
+    margin-bottom: 3rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    position: relative;
+    /* 添加固定的文字陰影基礎，避免動畫造成位置偏移 */
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+    /* 確保容器大小固定 */
+    min-height: 1.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 防止動畫造成的佈局偏移 */
+    will-change: text-shadow;
+    transform: translateZ(0); /* 硬體加速 */
+    /* 改用更穩定的脈衝效果 */
+    animation: stable-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes stable-glow {
+    0% { 
+        text-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+    }
+    100% { 
+        text-shadow: 
+            0 0 20px rgba(0, 255, 157, 0.8),
+            0 0 30px rgba(0, 255, 157, 0.6),
+            0 0 40px rgba(0, 255, 157, 0.4);
+    }
+}
+
+/* 修正裝飾元素的位置問題 */
+.stats-title::before,
+.stats-title::after {
+    content: '◊';
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 添加固定的文字陰影，保持一致性 */
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    /* 防止動畫影響 */
+    will-change: auto;
+}
+
+.stats-title::before { 
+    left: -50px; 
+}
+
+.stats-title::after { 
+    right: -50px; 
 }
 
 .stats-grid {
@@ -742,6 +806,10 @@ button[type="submit"]:hover {
 }
 
 /* 動畫效果 */
+.blink {
+    animation: blink 1s infinite;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -787,6 +855,16 @@ button[type="submit"]:hover {
         display: none; 
     }
     
+    .stats-title::before, 
+    .stats-title::after { 
+        display: none; 
+    }
+    
+    .stats-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
     #subscribe-form {
         flex-direction: column;
     }
@@ -809,5 +887,12 @@ button[type="submit"]:hover {
     
     .status-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
     }
 }
