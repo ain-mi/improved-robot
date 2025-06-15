@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免責聲明 - Information is Delicious </title>
+    <meta name="description" content="法律條文很煩，但不寫會更煩 — 威爾森的免責聲明">
+    <meta name="keywords" content="免責聲明,法律條款,威爾森,椰子頭,使用條款">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="coconut_icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="coconut_icon.svg">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '⚖️';
+            position: absolute;
+            font-size: 12rem;
+            opacity: 0.1;
+            right: -3rem;
+            top: -2rem;
+            animation: scaleRotate 8s ease-in-out infinite;
+        }
+        
+        @keyframes scaleRotate {
+            0%, 100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .cta-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        /* Main Content */
+        main {
+            background: white;
+            margin-top: 2rem;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -5px 30px rgba(0,0,0,0.1);
+        }
+        
+        /* Ad Space */
+        .ad-space {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #6c757d;
+        }
+        
+        .ad-space.banner {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ad-space.sidebar {
+            height: 300px;
+            width: 100%;
+        }
+        
+        /* Content Grid */
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            padding: 2rem;
+        }
+        
+        .disclaimer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .section-icon {
+            font-size: 2rem;
+        }
+        
+        .section h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .section-content {
+            padding: 2rem;
+        }
+        
+        .wilson-quote {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid #667eea;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            position: relative;
+            color: #555;
+        }
+        
+        .wilson-quote::before {
+            content: '"';
+            font-size: 3rem;
+            color: #667eea;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.3;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.3);
+        }
+        
+        .warning-box {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+        
+        .contact-section h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-section a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .sidebar h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        
+        .popular-list {
+            list-style: none;
+        }
+        
+        .popular-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .popular-list a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .popular-list a:hover {
+            color: #667eea;
+        }
+        
+        .coconut-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            font-size: 3rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .coconut-float:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+        
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #667eea;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero::before {
+                font-size: 8rem;
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            .coconut-float {
+                bottom: 20px;
+                right: 20px;
+                font-size: 2.5rem;
+                padding: 12px;
+            }
+        }
+        
+        /* Loading Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Information is Delicious</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🥥 海灘廢人免責聲明</h1>
+            <p>「法律條文很煩，但不寫會更煩」— 威爾森語錄</p>
+            <a href="#content" class="cta-button">開始閱讀</a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Top Banner Ad -->
+        <div class="container">
+            <div class="ad-space banner">
+                <strong>Google AdSense 橫幅廣告位 (728x90)</strong>
+            </div>
+        </div>
+
+        <div class="container content-wrapper" id="content">
+            <section class="disclaimer-content">
+                <!-- 資料來源說明 -->
+                <article class="section">
+                    <div id="s1" class="section-header">
+                        <span class="section-icon">📊</span>
+                        <h2>資料來源說明</h2>
+                    </div>
+                    <div class="section-content">
+                        <p style="font-size: 1.1rem; font-weight: bold; color: #667eea; margin-bottom: 1rem;">
+                            TL;DR：我也是從網路上撿來的，別太認真
+                        </p>
+                        
+                        <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                            嗨，我是威爾森，那顆會看數據的椰子。這網站上的資料都是我從網路上「撿」來的公開資料，經過我這顆椰子腦的整理後呈現給你們。
+                        </p>
+
+                        <div class="wilson-quote">
+                            <strong>威爾森真心話</strong>：我不是數據之神，只是個會 Google 的椰子。這些資料僅供參考，不要拿來做什麼重大決策，除非你想跟我一樣逃到沙灘上。
+                        </div>
+
+                        <p style="line-height: 1.8;">
+                            如果你發現我不小心用了你的東西，請寄信到 <strong>wilsonbeachgood@gmail.com</strong> 跟我說一聲，我會立刻把它下架。我們都是社畜，互相理解一下。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- 網站性質說明 -->
+                <article class="section">
+                    <div id="s2"  class="section-header">
+                        <span class="section-icon">🌊</span>
+                        <h2>網站性質說明</h2>
+                    </div>
+                    <div class="section-content">
+                        <p style="font-size: 1.1rem; font-weight: bold; color: #667eea; margin-bottom: 1rem;">
+                            我就是個躺在沙灘上的個體戶
+                        </p>
+                        
+                        <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                            這個網站就是我一顆椰子在經營的，靠廣告收入維持我的 Wi-Fi 費用和偶爾買杯椰子汁的錢。我沒有要賣你任何東西，只是分享一些讓人清醒的數據。
+                        </p>
+
+                        <div class="highlight-box">
+                            💸 現實時間：是的，我放了廣告，不然我要吃什麼？連椰子也要生存好嗎。
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 使用須知 -->
+                <article class="section">
+                    <div id="s3"  class="section-header">
+                        <span class="section-icon">⚠️</span>
+                        <h2>使用須知（重要但無聊的部分）</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <span class="icon">📈</span>
+                                <h3>關於資訊準確性</h3>
+                                <p>「我努力查證，但我也會出錯」</p>
+                                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                                    我不是 AI，會出錯；資料會變動，我不是 24/7 更新的機器人
+                                </p>
+                            </div>
+
+                            <div class="feature-card">
+                                <span class="icon">🎲</span>
+                                <h3>關於使用風險</h3>
+                                <p>「用了我的資料出包，別來找我」</p>
+                                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                                    你用我的資料做決策 = 你自己負責
+                                </p>
+                            </div>
+
+                            <div class="feature-card">
+                                <span class="icon">🚫</span>
+                                <h3>非專業建議聲明</h3>
+                                <p>「我只是顆會看圖表的椰子」</p>
+                                <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                                    需要專業意見？去找真正的專家，不要問椰子
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="wilson-quote">
+                            <strong>威爾森的哲學</strong>：如果我有能力預測未來和給完美建議，我就不會在這裡當椰子了。
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 隱私權說明 -->
+                <article class="section">
+                    <div id="s4" class="section-header">
+                        <span class="section-icon">🛡️</span>
+                        <h2>隱私權說明</h2>
+                    </div>
+                    <div class="section-content">
+                        <p style="font-size: 1.1rem; font-weight: bold; color: #667eea; margin-bottom: 1rem;">
+                            「我會知道你來過，但我不會跟蹤你」
+                        </p>
+                        
+                        <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                            這網站會用 Cookie 來記住你的偏好、投放相關廣告、分析網站使用狀況。
+                        </p>
+
+                        <div class="highlight-box">
+                            我不會賣你的個資，主要是因為沒人要買一個看資訊圖表的椰子網站用戶資料。
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 侵權通知機制 -->
+                <article class="section">
+                    <div id="s5" class="section-header">
+                        <span class="section-icon">📮</span>
+                        <h2>侵權通知機制</h2>
+                    </div>
+                    <div class="section-content">
+                        <p style="font-size: 1.1rem; font-weight: bold; color: #667eea; margin-bottom: 1rem;">
+                            「發現問題請告訴我，我很好講話」
+                        </p>
+                        
+                        <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                            如果你覺得我用了不該用的東西，請寄信到 <strong>wilsonbeachgood@gmail.com</strong> 並告訴我：
+                        </p>
+
+                        <ul style="line-height: 2; margin-bottom: 1.5rem; padding-left: 2rem;">
+                            <li><strong>具體位置</strong>：在網站的哪裡</li>
+                            <li><strong>什麼問題</strong>：為什麼認為有侵權</li>
+                            <li><strong>你的聯絡方式</strong>：讓我可以回覆你</li>
+                        </ul>
+
+                        <div class="wilson-quote">
+                            <strong>威爾森承諾</strong>：我會認真看每一封信，除非是垃圾郵件或要我投資比特幣的。
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 最後的話 -->
+                <article class="section">
+                    <div class="section-header">
+                        <span class="section-icon">🏖️</span>
+                        <h2>最後的話</h2>
+                    </div>
+                    <div class="section-content">
+                        <p style="line-height: 1.8; margin-bottom: 1.5rem;">
+                            這份聲明看起來很長很煩，但該說的還是要說。我只是想在這個瞬息萬變的世界裡，提供一個讓大家喘息和思考的角落。
+                        </p>
+
+                        <div class="wilson-quote">
+                            <strong>威爾森的祝福</strong>：願你在資訊的海洋中找到方向，在 AI 的浪潮中保持人性。
+                        </div>
+
+                        <div class="contact-section">
+                            <h3>📧 聯絡威爾森</h3>
+                            <p>Email: wilsonbeachgood@gmail.com</p>
+                            <p>回信速度：通常 1-3 個工作日，除非我在放空或思考人生</p>
+                            <a href="mailto:wilsonbeachgood@gmail.com">寄信給椰子</a>
+                        </div>
+
+                        <p style="text-align: center; color: #888; margin-top: 2rem;">
+                            最後更新：2025.06.12<br>
+                            下次更新：看心情 🥥
+                        </p>
+                    </div>
+                </article>
+            </section>
+
+            <aside class="sidebar">
+                <!-- Sidebar Ad -->
+                <div class="ad-space sidebar">
+                    <strong>Google AdSense<br>側邊欄廣告<br>(300x250)</strong>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>快速導覽</h3>
+                    <ul class="popular-list">
+                        <li><a href="#s1">📊 資料來源說明</a></li>
+                        <li><a href="#s2">🌊 網站性質說明</a></li>
+                        <li><a href="#s3">⚠️ 使用須知</a></li>
+                        <li><a href="#s4">🛡️ 隱私權說明</a></li>
+                        <li><a href="#s5">📮 侵權通知機制</a></li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>威爾森語錄</h3>
+                    <ul class="popular-list">
+                        <li><a href="#">法律條文很煩，但不寫會更煩</a></li>
+                        <li><a href="#">我不是數據之神，只是個會 Google 的椰子</a></li>
+                        <li><a href="#">連椰子也要生存好嗎</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Bottom Banner Ad -->
+        <div class="container">
+            <div class="ad-space banner">
+                <strong>Google AdSense 底部橫幅廣告位 (728x90)</strong>
+            </div>
+        </div>
+    </main>
+
+    <!-- 漂浮椰子 -->
+    <div class="coconut-float" onclick="scrollToTop()">🥥</div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Information is Delicious - 威爾森資訊圖表</h4>
+                    <p>在躺平和起立間猶豫，我們選擇優雅地沉沒。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速連結</h4>
+                    <p><a href="index.html">首頁</a></p>
+                    <p><a href="about.html">關於威爾森</a></p>
+                    <p><a href="disclaimer.html">免責聲明</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>聯絡椰子頭</h4>
+                    <p>Email: wilsonbeachgood@gmail.com</p>
+                    <p>🥥 在沙灘上等你的訊息</p>
+                </div>
+            </div>
+            <p>&copy; Information is Delicious - 威爾森資訊圖表分享平台. 版權所有 (但我們也不知道有什麼用)</p>
+        </div>
+    </footer>
+
+    <script>
+        // 回到頂部功能
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // 漂浮椰子點擊效果
+        document.querySelector('.coconut-float').addEventListener('click', function() {
+            const quotes = [
+                '法律條文很煩，但不寫會更煩',
+                '我不是律師，只是顆會看數據的椰子',
+                '有問題就寄信，別害羞',
+                '我們都是為了生活，互相理解一下'
+            ];
+            
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            // 創建臨時提示框
+            const tooltip = document.createElement('div');
+            tooltip.textContent = randomQuote;
+            tooltip.style.cssText = `
+                position: fixed;
+                bottom: 120px;
+                right: 30px;
+                background: rgba(0,0,0,0.8);
+                color: white;
+                padding: 10px 15px;
+                border-radius: 10px;
+                z-index: 9999;
+                max-width: 200px;
+                text-align: center;
+                font-size: 0.9rem;
+                animation: fadeInScale 0.3s ease;
+            `;
+            
+            document.body.appendChild(tooltip);
+            
+            setTimeout(() => {
+                tooltip.style.animation = 'fadeOutScale 0.3s ease';
+                setTimeout(() => tooltip.remove(), 300);
+            }, 2000);
+        });
+
+        
+        // 添加動畫樣式
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInScale {
+                from { opacity: 0; transform: scale(0.8); }
+                to { opacity: 1; transform: scale(1); }
+            }
+            @keyframes fadeOutScale {
+                from { opacity: 1; transform: scale(1); }
+                to { opacity: 0; transform: scale(0.8); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 平滑滾動到章節
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滾動時椰子動畫
+        let isScrolling = false;
+        window.addEventListener('scroll', () => {
+            if (!isScrolling) {
+                const coconut = document.querySelector('.coconut-float');
+                coconut.style.transform = 'scale(1.1) rotate(10deg)';
+                
+                setTimeout(() => {
+                    coconut.style.transform = 'scale(1) rotate(0deg)';
+                }, 150);
+                
+                isScrolling = true;
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 100);
+            }
+        });
+
+        // 載入動畫
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.section').forEach((section, index) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    section.style.transition = 'all 0.6s ease';
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // 椰子語錄循環顯示
+        const coconutQuotes = [
+            '🥥 法律條文很煩，但不寫會更煩',
+            '🏖️ 我不是律師，只是顆會看數據的椰子',
+            '📧 有問題就寄信，別害羞',
+            '🤝 我們都是為了生活，互相理解一下',
+            '💡 資訊就是力量，但要小心使用',
+            '🌊 在資訊的海洋中保持冷靜'
+        ];
+
+        let currentQuoteIndex = 0;
+        setInterval(() => {
+            const coconut = document.querySelector('.coconut-float');
+            coconut.title = coconutQuotes[currentQuoteIndex];
+            currentQuoteIndex = (currentQuoteIndex + 1) % coconutQuotes.length;
+        }, 3000);
+
+        // 初始化第一個提示
+        document.querySelector('.coconut-float').title = coconutQuotes[0];
+    </script>
+</body>
+</html>

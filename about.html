@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 - Information is Delicious</title>
+    <meta name="description" content="歡迎來到一片漂流邊界，這裡沒有神級講師，只有冷冷的數據和比AI還冷的吐槽。">
+    <meta name="keywords" content="威爾森,椰子頭,數據分析,AI趨勢,職場焦慮,資訊圖表">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="coconut_icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="coconut_icon.svg">
+
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '🥥';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            right: -2rem;
+            top: -2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .wilson-intro {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        
+        .wilson-avatar {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: coconutSway 4s ease-in-out infinite;
+        }
+        
+        @keyframes coconutSway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+        
+        .wilson-avatar::after {
+            content: '📶';
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            font-size: 2rem;
+            animation: blink 2s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
+        }
+        
+        .about-content {
+            background: white;
+            margin: 2rem 0;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-left: 5px solid #667eea;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            font-size: 4rem;
+            color: #667eea;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .mission-section {
+            background: #f8f9fa;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+        }
+        
+        .warning-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .wilson-intro {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .wilson-avatar {
+                justify-self: center;
+            }
+            
+            .about-hero::before {
+                font-size: 8rem;
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Information is Delicious</div>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">關於</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>歡迎來到漂流邊界</h1>
+            <p>這不是一個要你努力向上的網站，而是一張躺下來也能看清局勢的毯子。</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <div class="about-content">
+                <div class="wilson-intro">
+                    <div class="wilson-avatar">🥥</div>
+                    <div>
+                        <h2>椰子頭威爾森 Wilson the Coconut</h2>
+                        <p class="subtitle" style="color: #666; font-size: 1.1rem; margin-bottom: 1rem;">
+                            「我不是什麼AI專家，我只是被工作碾過三遍、最後逃到沙灘上的普通人。」
+                        </p>
+                        <p style="line-height: 1.8;">
+                            威爾森，一顆有Wi-Fi、有情緒、還有點報表技能的椰子。他原本是辦公室裡的標準「不敢說不型工具人」，
+                            總是在專案簡報中擠出笑容，背地裡靠搜尋「怎麼用AI取代我的主管」來撐過工時。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    <p>「如果無法脫離現實，就先畫出哪裡可以呼吸。」</p>
+                    <p>「不是我愛看數據，是我不想死得太早。」</p>
+                </div>
+
+                <h3>威爾森的逃生故事</h3>
+                <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    他不是轉職成功的人，他是「還沒崩潰就算贏」的人。在一次不小心打開AI報告的夜裡，
+                    他看到未來十年每個產業都在加速進化，連藝術家都被AI嗑爆。於是他關掉簡報，
+                    帶著筆電和厭世飛奔到沙灘。
+                </p>
+
+                <p style="line-height: 1.8; margin-bottom: 2rem;">
+                    在那裡，他發現了一個新技能——<strong>用AI趨勢畫逃生路線圖</strong>。
+                </p>
+
+                <div class="warning-banner">
+                    ⚠️ 注意：這裡不是給早起運動、晨間感恩日記的KPI狂人來的 ⚠️
+                </div>
+
+                <div class="mission-section">
+                    <h3>網站使命</h3>
+                    <p style="line-height: 1.8; margin-bottom: 2rem;">
+                        歡迎來到一片漂流邊界，在這裡，沒有神級講師、沒有未來藍圖、只有冷冷的數據和比AI還冷的吐槽。
+                        我們不教你怎麼成為科技圈新貴，我們只給你一個能在<strong>資訊焦慮和職場幻滅之間喘息的角落</strong>。
+                    </p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div>真實的厭世</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">0%</div>
+                            <div>成功學雞湯</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div>躺平的智慧</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>我們提供什麼</h3>
+                <ul style="line-height: 2; margin-bottom: 2rem;">
+                    <li>📊 <strong>圖表？有。</strong> 冷靜分析現實的殘酷數據</li>
+                    <li>📈 <strong>產業分析？有。</strong> 告訴你哪些工作快要消失</li>
+                    <li>🤷‍♂️ <strong>人生出路？我們也在找。</strong> 一起迷茫比較不孤單</li>
+                </ul>
+
+                <h3>適合誰來</h3>
+                <p style="line-height: 1.8; margin-bottom: 1rem;">
+                    這裡是給你——「滑完LinkedIn感覺被AI踢下車，結果下班還得寫ChatGPT指令」的那種人。
+                </p>
+
+                <div class="skill-tags">
+                    <span class="skill-tag">職場幻滅症候群</span>
+                    <span class="skill-tag">AI焦慮患者</span>
+                    <span class="skill-tag">數據成癮者</span>
+                    <span class="skill-tag">躺平哲學家</span>
+                    <span class="skill-tag">資訊焦慮症</span>
+                    <span class="skill-tag">工具人自救會</span>
+                </div>
+
+                <div class="quote-box">
+                    <h4>威爾森的代表語錄：</h4>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>• 「學AI？有學。焦慮？一直有。睡得好？沒了。」</li>
+                        <li>• 「我不是懶，是知道努力也不一定會變成人。」</li>
+                        <li>• 「這不是報表，是我對現實的求救訊號。」</li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 3rem 0;">
+                    <p style="font-size: 1.2rem; color: #667eea; font-weight: bold;">
+                        別怕你跟不上AI，AI也沒空等你。<br>
+                        但威爾森會在沙灘等你，一起滑手機，看數據，邊躺邊想：
+                    </p>
+                    <p style="font-size: 1.5rem; margin-top: 1rem;">
+                        「……那我現在到底是該學Python，還是乾脆去種芋頭？」 🤔
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 2rem; border-radius: 15px; text-align: center; margin: 3rem 0;">
+                    <h3 style="margin-bottom: 1rem;">加入我們的海灘廢人聯盟</h3>
+                    <p>一起在數據的海洋中漂流，在AI的浪潮中躺平</p>
+                    <a href="mailto:wilsonbeachgood@gmail.com" style="display: inline-block; background: white; color: #667eea; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 1rem;">
+                        聯絡威爾森
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Information is Delicious - 威爾森資訊圖表</h4>
+                    <p>在躺平和起立間猶豫，我們選擇優雅地沉沒。</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速連結</h4>
+                    <p><a href="index.html">首頁</a></p>
+                    <p><a href="about.html">關於</a></p>
+                    <p><a href="disclaimer.html">聲明</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>聯絡椰子頭</h4>
+                    <p>Email: wilsonbeachgood@gmail.com</p>
+                    <p>🥥 在沙灘上等你的訊息</p>
+                </div>
+            </div>
+            <p>&copy; 2025 Information is Delicious看數據的海灘廢人. 版權所有 (但我們也不知道有什麼用)</p>
+        </div>
+    </footer>
+
+    <script>
+        // 添加一些互動效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const coconut = document.querySelector('.wilson-avatar');
+            
+            coconut.addEventListener('click', function() {
+                const quotes = [
+                    '學AI？有學。焦慮？一直有。睡得好？沒了。',
+                    '我不是懶，是知道努力也不一定會變成人。',
+                    '這不是報表，是我對現實的求救訊號。',
+                    '別怕你跟不上AI，AI也沒空等你。'
+                ];
+                
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                
+                // 創建臨時提示框
+                const tooltip = document.createElement('div');
+                tooltip.textContent = randomQuote;
+                tooltip.style.cssText = `
+                    position: fixed;
+                    top: 50%; left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0,0,0,0.8);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 10px;
+                    z-index: 9999;
+                    max-width: 300px;
+                    text-align: center;
+                    animation: fadeIn 0.3s ease;
+                `;
+                
+                document.body.appendChild(tooltip);
+                
+                setTimeout(() => {
+                    tooltip.style.animation = 'fadeOut 0.3s ease';
+                    setTimeout(() => tooltip.remove(), 300);
+                }, 3000);
+            });
+            
+            // 添加 CSS 動畫
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                }
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                    to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
