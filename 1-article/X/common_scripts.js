@@ -4,58 +4,6 @@
  */
 
 /* ==========================================================================
-   響應式導覽列功能
-   ========================================================================== */
-
-/**
- * 初始化響應式導覽選單
- */
-function initResponsiveNavigation() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (mobileMenuBtn && navLinks) {
-        // 漢堡選單點擊事件
-        mobileMenuBtn.addEventListener('click', function() {
-            // 切換選單狀態
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-            
-            // 更新 aria-expanded 屬性
-            const isExpanded = navLinks.classList.contains('active');
-            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
-        });
-        
-        // 點擊導覽連結時關閉選單
-        navLinks.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // 點擊頁面其他地方時關閉選單
-        document.addEventListener('click', function(e) {
-            if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-        
-        // ESC 鍵關閉選單
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-    }
-}
-
-/* ==========================================================================
    Chart.js 通用設定
    ========================================================================== */
 
@@ -264,9 +212,6 @@ function handleTableResponsiveness() {
  * DOM載入完成後執行
  */
 document.addEventListener('DOMContentLoaded', function() {
-    // 初始化響應式導覽 (新增)
-    initResponsiveNavigation();
-    
     // 處理響應式功能
     handleChartResponsiveness();
     handleTableResponsiveness();
@@ -295,5 +240,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    console.log('Information is Delicious - 通用腳本已載入 (包含響應式導覽)');
+    console.log('Information is Delicious - 通用腳本已載入');
 });
